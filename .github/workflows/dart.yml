@@ -16,7 +16,7 @@ jobs:
           java-version: "12.x"
       - uses: subosito/flutter-action@v1
         with:
-          flutter-version: "1.17.x" # you can use 1.12
+          flutter-version: "1.12.x" # you can use 1.12
           channel: "beta" # Currently you have to use beta channel for Flutter web.
       - name: Upgrades Flutter
         run: flutter upgrade
@@ -35,9 +35,9 @@ jobs:
           cd build/web
           git init
           git config user.name  "bhanugummana"
-          git config user.email "flutter-ci@github.com"
+          git config user.email "prakash@sutara.org"
           git remote add secure-origin https://${{ secrets.ACCESS_TOKEN }}@github.com/bhanugummana/flutterwebhost.git
           git checkout -b gh-pages
-          git add .
+          git add --all
           git commit -m "Updated docs"
           git push --force secure-origin gh-pages
