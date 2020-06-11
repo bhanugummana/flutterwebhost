@@ -33,4 +33,4 @@ jobs:
           git commit -m "update"
           # git push --force secure-origin
           # git push origin gh-pages -f
-          git push
+          git push --set-upstream origin gh-pages
