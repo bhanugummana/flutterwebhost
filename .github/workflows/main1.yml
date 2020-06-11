@@ -31,8 +31,8 @@ jobs:
         run: |
           cd build/web
           git init
-          git config --global user.name  "CI"
-          git config --global user.email "flutter-ci@github.com"
+          git config --global user.name  bhanugummana
+          git config --global user.email prakash@sutara.org
           git remote add secure-origin https://${{ secrets.ACCESS_TOKEN }}@github.com/bhanugummana/flutterwebhost.git
           git checkout -b gh-pages
           git add .
