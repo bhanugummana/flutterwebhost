@@ -21,6 +21,10 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  parse_server_sdk:
+    git:
+      url: https://github.com/chimple/Parse-SDK-Flutter
+      ref: Bhanu
   flutter:
     sdk: flutter
 
