@@ -33,5 +33,5 @@ jobs:
           git remote add secure-origin https://${{ secrets.ACCESS_TOKEN }}@github.com/bhanugummana/flutterwebhost.git
           git checkout -b abb
           git add app-release.aab
-          git commit -m "Updated docs"
+          git commit -m "Updated docs1"
           git push origin abb -f
