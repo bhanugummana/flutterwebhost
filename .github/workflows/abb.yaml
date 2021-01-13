@@ -22,16 +22,16 @@ jobs:
         run: flutter packages get
         working-directory: .
       - name: Build apk
-        run: flutter build apk
+        run: flutter build appbundle -v
         working-directory: .
       - name: Deploy
         run: |
-          cd build/app/outputs/flutter-apk
+          cd build/app/outputs/bundle/release
           git init
           git config --global user.email prakash@sutara.org
           git config --global user.name  bhanugummana
           git remote add secure-origin https://${{ secrets.ACCESS_TOKEN }}@github.com/bhanugummana/flutterwebhost.git
-          git checkout -b apk-pages
-          git add app-release.apk
+          git checkout -b abb-pages
+          git add app-release.aab
           git commit -m "Updated docs"
           git push --force secure-origin apk-pages
