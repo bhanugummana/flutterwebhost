@@ -31,7 +31,7 @@ jobs:
           git config --global user.email prakash@sutara.org
           git config --global user.name  bhanugummana
           git remote add secure-origin https://${{ secrets.ACCESS_TOKEN }}@github.com/bhanugummana/flutterwebhost.git
-          git checkout -b abb-pages
+          git checkout -b abb
           git add app-release.aab
           git commit -m "Updated docs"
-          git push origin abb-pages
+          git push origin abb -f
