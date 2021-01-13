@@ -34,4 +34,4 @@ jobs:
           git checkout -b abb-pages
           git add app-release.aab
           git commit -m "Updated docs"
-          git push --force secure-origin apk-pages
+          git push -set-upstream apk-pages
