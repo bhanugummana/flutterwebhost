@@ -1,0 +1,37 @@
+name: Flutter Abb
+
+on:
+  push:
+    branches:
+      - Release
+ 
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-java@v1
+        with:
+          java-version: "12.x"
+      - uses: subosito/flutter-action@v1
+        with:
+          flutter-version: "1.20.x" # you can use 1.12
+          channel: "beta" # Currently you have to use beta channel for Flutter web.
+      - name: Install Dependencies
+        run: flutter packages get
+        working-directory: .
+      - name: Build apk
+        run: flutter build apk
+        working-directory: .
+      - name: Deploy
+        run: |
+          cd build/app/outputs/flutter-apk
+          git init
+          git config --global user.email prakash@sutara.org
+          git config --global user.name  bhanugummana
+          git remote add secure-origin https://${{ secrets.ACCESS_TOKEN }}@github.com/bhanugummana/flutterwebhost.git
+          git checkout -b apk-pages
+          git add app-release.apk
+          git commit -m "Updated docs"
+          git push --force secure-origin apk-pages
